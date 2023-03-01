@@ -6,18 +6,27 @@ const screen = {
         <div class="data">
             <h1>${user.name ?? "Não possui nome cadastrado 😒"}</h1>
             <p>${user.bio ?? "Não possui bio cadastrada 🤨"}</p>
-            <i class="fa-solid fa-users"></i>
-            <ul>
-                <li>Seguidores: ${user.followers}</li>
-                <li> Seguindo: ${user.following}</li>
-            </ul>
-        </div>
+            <hr>     
+                <i class="fa-solid fa-users"></i>                
+                <p>Seguidores: ${user.followers}</p>                
+                <p>Seguindo: ${user.following}</p>
+            
+        </div>        
         </div>`;
+        
 
         let repositoriesItens = "";
         user.repositories.forEach(
             (repo) =>
-                (repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`)
+                (repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}
+                <ul>
+                <li><i class="fa-solid fa-code-fork"> </i>${repo.forks}</li>|
+                <li><i class="fa-solid fa-eye"></i>${repo.watchers}</li>|
+                <li><i class="fa-solid fa-star"></i>${repo.stargazers_count}</li>|
+                <li><i class="fa-solid fa-laptop-code"></i>${repo.language}</li>
+                </ul>                
+                </a>
+                </li>`)
         );    
 
         if (user.repositories.length > 0) {
