@@ -16,7 +16,7 @@ const user = {
     },
     setRepositories(repositories){
         this.repositories = repositories
-    }
+    },
 }
 
 export { user }
