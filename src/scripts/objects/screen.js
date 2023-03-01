@@ -18,8 +18,7 @@ const screen = {
         user.repositories.forEach(
             (repo) =>
                 (repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`)
-        );
-        console.log(repositoriesItens);
+        );    
 
         if (user.repositories.length > 0) {
             this.userProfile.innerHTML += `<div class="repositories section">
@@ -27,6 +26,21 @@ const screen = {
             <ul>${repositoriesItens}</ul>
             </div>`;
         }
+
+        let eventsItens = "";
+        user.events.forEach(
+            (events) =>
+                (eventsItens += `<li><a href="${events.repo.html_url}" target="_blank">${events.type} em ${events.repo.name}</a></li>`)
+        );
+
+        if (user.events.length > 0) {
+            this.userProfile.innerHTML += `<div class="repositories section">
+            <h2>Eventos</h2>
+            <ul>${eventsItens}</ul>
+            </div>`;
+        }
+
+
     },
     renderNotFound() {
         this.userProfile.innerHTML = "<h3>Usuário não encontrado</h3>";
