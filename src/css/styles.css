@@ -228,3 +228,7 @@ main {
     padding: 0;
   }
 }
+
+.notfound{
+  display: flex;
+}

@@ -30,22 +30,19 @@ function validateEmptyInput(userName) {
 }
 
 async function getUserData(userName) {
-    const userResponse = await getUser(userName);
-
-    if(userResponse.message === "Not found"){
-        screen.renderNotFound()
-        return
-    }
-
+    try {
+    const userResponse = await getUser(userName);    
     const repositoriesResponse = await getRepositories(userName);    
-    
     const eventsResponse = await getEvents(userName);
-
     user.setInfo(userResponse);
     user.setRepositories(repositoriesResponse);
     user.setEvents(eventsResponse);
-    
-
-    console.log(user);
     screen.renderUser(user);
+} catch (error) {
+        if (error.message === 'Not found') {
+            screen.renderNotFound();
+        } else {
+            console.error(error);
+        }
+    }
 }
