@@ -6,11 +6,12 @@ const screen = {
         <div class="data">
             <h1>${user.name ?? "Não possui nome cadastrado 😒"}</h1>
             <p>${user.bio ?? "Não possui bio cadastrada 🤨"}</p>
-            <hr>     
+            <hr>
+            <div class="info__follows">     
                 <i class="fa-solid fa-users"></i>                
                 <p>Seguidores: ${user.followers}</p>                
                 <p>Seguindo: ${user.following}</p>
-            
+            </div>
         </div>        
         </div>`;
         
@@ -19,7 +20,7 @@ const screen = {
         user.repositories.forEach(
             (repo) =>
                 (repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}
-                <ul>
+                <ul class="repo__icons">
                 <li><i class="fa-solid fa-code-fork"> </i>${repo.forks}</li>|
                 <li><i class="fa-solid fa-eye"></i>${repo.watchers}</li>|
                 <li><i class="fa-solid fa-star"></i>${repo.stargazers_count}</li>|
