@@ -44,7 +44,7 @@ const screen = {
         );
 
         if (user.events.length > 0) {
-            this.userProfile.innerHTML += `<div class="repositories section">
+            this.userProfile.innerHTML += `<div class="event section">
             <h2>Eventos</h2>
             <ul>${eventsItens}</ul>
             </div>`;
